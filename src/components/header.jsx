@@ -6,11 +6,13 @@ export default function Header(){
     return (
         <header className="flex items-center justify-between px-4 relative">
         <h1 className="text-xl uppercase font-medium tracking-wide text-gray-900">
-        NOTES_APP</h1>
+        NOTES</h1>
 
-        <div className="md:block flex  sm:mt-0 gap-2" id="nav">
-           <button className="w-24 p-1 mx-2 rounded bg-purple-600 shadow-xl shadow-purple-800
-           hover:bg-purple-500 hover:text-white hover:shadow-none">
+        <div className="absolute md:static md:block flex  sm:mt-0 gap-2
+         h-screen sm:h-fit sm:bg-transparent bg-slate-900" 
+        id="nav">
+           <button className="w-24 p-1 mx-2 mt-1 rounded bg-purple-600 shadow-xl shadow-purple-800
+           hover:bg-purple-500  hover:text-white hover:shadow-none">
             <Link to="/">HOME</Link>
            </button>
            <button className="w-24 p-1 mx-2 rounded bg-green-600 shadow-xl shadow-green-800

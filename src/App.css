@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-    width: 100vw;
+    max-width: 100vw;
     min-height: 100vh;
     background: rgb(13,38,66);
     background: linear-gradient(90deg, rgba(13,38,66,1) 0%, rgba(14,47,84,1) 54%, rgba(13,38,66,1) 100%);
@@ -19,19 +19,22 @@ header{
 header .btn{
     display: none;
 }
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 640px) {
     header .btn{
         display: block;
     }
     #nav.active{
-        display: flex;
-        flex-direction: column;
         gap: 10px;
-        position: absolute;
-        right: 0;
-        top: 100%;
+        left: 0;
+        transition: 0.5s ease-in-out;
     }
     #nav{
-        display: none;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        left: -100%;
+        top: 100%;
+        transition: 0.5s ease-in-out;
+        z-index: 999;
     }
 }

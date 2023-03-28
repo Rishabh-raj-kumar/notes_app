@@ -4,11 +4,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 let initials = [
-
+     
 ];
 
 let nxtId = 1;
-let obj = JSON.parse(localStorage.getItem("obj"));
 export default function Notes() {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
@@ -37,7 +36,7 @@ export default function Notes() {
     <>
       <Header />
       <section className="w-full h-screen grid place-items-center">
-        <div className=" w-full h-full sm:w-1/2 sm:h-1/2 bg-slate-200 flex flex-col gap-2 justify-center items-center rounded">
+        <div className=" w-full p-4 sm:w-1/2 h-fit bg-slate-200 flex flex-col gap-2 justify-center items-center rounded">
           <input
             type="text"
             placeholder="Enter heading..."
@@ -49,6 +48,7 @@ export default function Notes() {
           <textarea
             placeholder="Enter the notes ..."
             value={summary}
+            rows="7"
             className=" w-64 sm:w-1/2 p-2 rounded border-1 outline-none"
             onChange={(e) => setSummary(e.target.value)}
           />
