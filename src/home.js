@@ -15,9 +15,20 @@ export default function Home() {
     <>
       <Header />
       {maps !== null ? (
-        <section className="w-full min-h-full flex  justify-around sm:justify-start  flex-wrap">
+        <section className="w-full min-h-full"
+        onLoad={
+          () =>{
+            let left_anim = document.querySelector('.left--animate');
+            let right_anim = document.querySelector('.right--animate');
+
+            setInterval(() => {
+              left_anim.style.left = `${Math.floor(Math.random(10))}px`;
+              right_anim.style.left = `${Math.floor(Math.random(10))}px`;
+            }, 1000);
+          }
+        }>
           {maps.map((x) => (
-            <div className="bg-slate-300 rounded-md m-2">
+            <div className="bg-slate-300 rounded-md m-2 float-left">
             <div
               key={x.id}
               className="div--canva w-40 sm:w-48 bg-slate-300 rounded-md relative"
@@ -59,6 +70,8 @@ export default function Home() {
               </button>
             </div>
           ))}
+
+          <div className="w-48 h-48 bg-zinc-100 blur-md absolute -z-10"></div>
         </section>
       ) : (
         <section className="w-fit h-fit">
@@ -73,6 +86,10 @@ export default function Home() {
               <Link to="/notes">CREATE</Link>
             </button>
           </div>
+          <div className=" left--animate w-24 h-24 bg-zinc-100 blur-xl rounded-xl absolute -z-10"></div>
+          <div className=" left--animate w-24 h-24 bg-amber-400 blur-xl rounded-xl absolute -z-10 right-0"></div>
+          <div className=" right--animate w-24 h-24 bg-purple-500 blur-xl rounded-xl absolute -z-10 bottom-0"></div>
+          <div className=" right--animate w-24 h-24 bg-sky-600 blur-xl rounded-xl absolute -z-10 right-0 bottom-8"></div>
         </section>
       )}
       <Footer />
@@ -82,4 +99,16 @@ export default function Home() {
 
 function Footer({ title, summary }) {
   return <h1>{summary}</h1>;
+}
+
+onLoad={
+  () =>{
+    let left_anim = document.querySelector('.left--animate');
+    let right_anim = document.querySelector('.right--animate');
+
+    setInterval(() => {
+      left_anim.style.left = `${Math.floor(Math.random(10))}px`;
+      right_anim.style.left = `${Math.floor(Math.random(10))}px`;
+    }, 1000);
+  }
 }
